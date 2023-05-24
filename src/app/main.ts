@@ -1,32 +1,22 @@
-import axios from 'axios';
-import { Product } from './models/product.model';
+import { ProductMemoryService } from './services/product_memory.service.mts';
 
-//? there are some ways in which we can type promises:
+const productService = new ProductMemoryService();
 
-  //* Type the return of the function: "getProducts(): Promise<Product[]> {..."
-  //< This works for outside the function, the code that uses the return would know the type, but nor inside the function
+productService.create({
+  title: 'producto 1',
+  price: 23,
+  description: 'sfsdwgw',
+  creationAt: new Date(1995, 1, 2),
+  updatedAt: new Date(1995, 1, 24),
+  categoryId: 3,
+  images: ['23'],
+});
 
-  //* Force the type of data after receive it:
-  //< This is used when the library you are using don't support typying, use it as a last resort
-  /* async function getProductsV2() {
-    const rta = await axios.get(
-      'https://api.escuelajs.co/api/v1/products'
-    );
-  < const data = rta.data as Product[]
-    return data;
-  } */
+const products = productService.getAll();
+const productId = products[0].id;
 
-  //*This is the best way to type a request, type the response of the request
-async function getProducts() {
-  const { data } = await axios.get<Product[]>(
-    'https://api.escuelajs.co/api/v1/products'
-  );
-  return data;
-}
+productService.update(productId, { title: 'Other name' });
 
-async function asking() {
-  const products = await getProducts();
-  console.log(products.map((product) => product.id));
-}
+const rta = productService.findOne(productId);
+console.log(rta);
 
-asking();
