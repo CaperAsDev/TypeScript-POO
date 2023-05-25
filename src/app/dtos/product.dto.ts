@@ -1,5 +1,5 @@
 import { Product } from '../models/product.model';
-import { Category } from '../models/category.model';
+import { Category } from '../models/category.model.mts';
 
 export interface CreateProductDTO
   extends Omit<Product, 'id' |'category'> {

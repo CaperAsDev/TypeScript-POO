@@ -43,3 +43,22 @@ A derived class has all the properties and methods of its base class, of course 
 Take into account the member visibility because it will limit the access to the members.
 
 This topic is treated with notes in the [advancedOop.ts](./src/advanceOop.ts) file. In this file we also address the [static Members](https://www.typescriptlang.org/docs/handbook/2/classes.html#static-members), which are members not associated with a specific instance but rather with the constructor object itself.
+
+## [API request](./src/app/02-main.ts)
+The app develped here is based on the one built in the past course, but updated to use classes instead of functions in the *.service* and using a *Product* interface made from the response of an api rest, so we also have to change related files to avoid possible conflicts.
+
+The process to transform our app is not difficult but you have to check names of properties, types and routes carefully, paying attention to the warnings that typeScript provides it's a process quite simple.
+
+In the process to reform our code, we used [quicktype.io](https://app.quicktype.io/) to type the response of the api, so we can made a interface to use in our services. All those files are into the **App** folder. Check out that app to see applied the topics treated previously.
+
+## [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html#handbook-content)
+Generics are one of the main tools used when building a reusable component. Generics let our components work with any type of data instead of just being able to manage one type, and that flexibility is thanks to the possibility of sending parameters as we could do with a function, but sending the type of data to work with.
+
+That was a simple way of seeing generics but there are as many ways to use them as you can imagine. We'll see some in the [generics](./src/generics.ts) file.
+
+## [Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html#handbook-content)
+> Decorators provide a way to add both annotations and a meta-programming syntax for class declarations and members. Decorators are a stage 2 proposal for JavaScript and are available as an experimental feature of TypeScript.
+
+> A Decorator is a special kind of declaration that can be attached to a class declaration, method, accessor, property, or parameter. Decorators use the form @expression, where expression must evaluate to a function that will be called at runtime with information about the decorated declaration.
+
+To use decorators, we installed the [**class-validator**](https://github.com/typestack/class-validator) package that is used in the [category.dto.ts](./src/app/dtos/category.dto.ts) file.

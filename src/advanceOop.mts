@@ -16,7 +16,7 @@ abstract class Animal {
 
 /* const michi = new Animal('Michi', 6, 'Caper'); */ //!Cannot create an instance of an abstract class.
 
-class Dog extends Animal {
+export class Dog extends Animal {
   //?We can define static properties(don't need an instance of the class to call it) or methods in the base class or in derived classes.
   static description: string =
     'A dog is a domesticated mammal that serves as a loyal companion to humans. They come in different sizes, appearances, and temperaments due to selective breeding.';
@@ -89,7 +89,7 @@ interface Driver {
 
 //? Now let's implement the interface to a class
 
-class PostgresDriver implements Driver {
+export class PostgresDriver implements Driver {
   constructor(
     //?Declare the properties following the structure of the 'Driver' interface. I can add more if wanted, we just have to be sure to include the specified in the interface
     public database: string,

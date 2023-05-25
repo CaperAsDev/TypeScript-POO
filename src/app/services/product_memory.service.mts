@@ -1,8 +1,9 @@
 import { faker } from '@faker-js/faker';
 import { Product } from '../models/product.model';
 import { CreateProductDTO, UpdateProductDTO } from '../dtos/product.dto';
+import { ProductService } from '../models/product_service.model';
 
-export class ProductMemoryService {
+export class ProductMemoryService implements ProductService{
   private products: Product[] = [];
 
   getAll() {
